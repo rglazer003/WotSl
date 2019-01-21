@@ -1,3 +1,7 @@
+import util.Input;
+
+import util.stats_inventory;
+
 import java.lang.reflect.Array;
 // TODO: Write equipment list
 // TODO: Write spell list
@@ -11,6 +15,8 @@ import java.lang.reflect.Array;
 public class Main {
     public static void main(String[] args) {
         String playerName = "";
+        // Warehouse Worker, Librarian, Window Washer, Grifter
+        int job = 0;
         int gold = 0;
         int strength = 5;
         int intelligence = 5;
@@ -32,6 +38,25 @@ public class Main {
         // Maybe make more potions, if I implement more involved resistances add more damage potions
         int [] potions = {0,0,0,0,0};
         int [] questStuff;
-
+        System.out.println("WRATH OF THE SEWER LORD: TEST VERSION");
+        System.out.println("What is your name?");
+        playerName = Input.getString();
+        System.out.println(playerName+" it is.");
+        System.out.println("And what is your job?");
+        System.out.println("1. Warehouse Worker\n2. Librarian\n3. Window Washer\n4. Grifter");
+        job = Input.getInt(1,4);
+        System.out.println(job);
+        switch (job) {
+            case 1: strength += 2;
+            break;
+            case 2: intelligence += 2;
+            break;
+            case 3: agility += 2;
+            break;
+            case 4: luck += 2;
+            break;
+        }
+        stats_inventory.listStats(strength,intelligence,agility,luck);
+        Input.waitForEnter();
     }
 }
