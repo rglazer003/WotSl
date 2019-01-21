@@ -2,6 +2,8 @@ import util.Input;
 
 import util.stats_inventory;
 
+import util.ascii;
+
 import java.lang.reflect.Array;
 // TODO: Write equipment list
 // TODO: Write spell list
@@ -38,13 +40,17 @@ public class Main {
         // Maybe make more potions, if I implement more involved resistances add more damage potions
         int [] potions = {0,0,0,0,0};
         int [] questStuff;
-        System.out.println("WRATH OF THE SEWER LORD: TEST VERSION");
+        System.out.println(" __    __           _   _              __   _   _              ___       _   _                __               _ ");
+        System.out.println("/ / /\\ \\ \\_ __ __ _| |_| |__     ___  / _| | |_| |__   ___    / _ \\_   _| |_| |_ ___ _ __    / /  ___  _ __ __| |");
+        System.out.println("\\ \\/  \\/ / '__/ _` | __| '_ \\   / _ \\| |_  | __| '_ \\ / _ \\  / /_\\/ | | | __| __/ _ \\ '__|  / /  / _ \\| '__/ _` |");
+        System.out.println(" \\  /\\  /| | | (_| | |_| | | | | (_) |  _| | |_| | | |  __/ / /_\\\\| |_| | |_| ||  __/ |    / /__| (_) | | | (_| |");
+        System.out.println("  \\/  \\/ |_|  \\__,_|\\__|_| |_|  \\___/|_|    \\__|_| |_|\\___| \\____/ \\__,_|\\__|\\__\\___|_|    \\____/\\___/|_|  \\__,_|");
         System.out.println("What is your name?");
         playerName = Input.getString();
         System.out.println(playerName+" it is.");
         System.out.println("And what is your job?");
         System.out.println("1. Warehouse Worker\n2. Librarian\n3. Window Washer\n4. Grifter");
-        job = Input.getInt(1,4);
+        job = Input.getIntSilent(1,4);
         System.out.println(job);
         switch (job) {
             case 1: strength += 2;
@@ -56,7 +62,8 @@ public class Main {
             case 4: luck += 2;
             break;
         }
-        stats_inventory.listStats(strength,intelligence,agility,luck);
+        stats_inventory.listStats(playerName,job,strength,intelligence,agility,luck);
+        ascii.beetle();
         Input.waitForEnter();
     }
 }

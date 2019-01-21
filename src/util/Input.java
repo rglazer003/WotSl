@@ -25,6 +25,14 @@ public class Input {
         return input;
     }
 
+    public static int getIntSilent(int min, int max) {
+        int input = scanner.nextInt();
+        if (input > max || input < min) {
+            return getInt(min, max);
+        }
+        return input;
+    }
+
     public static int getInt() {
         return scanner.nextInt();
     }
